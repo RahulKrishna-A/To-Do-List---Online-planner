@@ -1,0 +1,610 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+*:focus {
+    outline: none;
+}
+
+:root {
+    --main-color: #01050b;
+    --side-color: rgb(20, 24, 27);
+    --text-color: #fdfdfd;
+    font-family: 'Rubik', sans-serif;
+}
+
+html {
+    font-size: 16px;
+    color: #fdfdfd;
+}
+
+#main-container {
+    background-color: var(--main-color);
+    display: grid;
+    grid-template-columns:1.3fr 5fr;
+    height: 100dvh;
+    width: 100dvw;
+}
+
+
+/*---------------------menu---------------------------------*/
+#main--menu {
+    background-color: var(--side-color);
+    margin: 1rem;
+    border-radius: 1rem;
+    font-family: 'Rubik', sans-serif;
+    padding-left: 10%;
+    padding-top: 1rem;
+
+}
+
+.menu__user_space_greeting {
+    font-size: 1.25rem;
+}
+
+.menu__user_space_greeting P:first-child {
+    margin-bottom: 0.5rem;
+}
+
+#menu__user_space {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu__profile_pic {
+    display: flex;
+    height: 4.3rem;
+    justify-content: center;
+    align-items: center;
+    width: 4.3rem;
+    border-radius: 4rem;
+    background-color: #d8da7a;
+    margin-bottom: 1rem;
+}
+
+.menu__profile_pic img {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 4rem;
+}
+
+/*!*-----------------------------nav-----------------*0/*/
+.github {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.icon {
+    position: absolute;
+    right: 20px;
+    top: 22px
+}
+
+.icon svg {
+    height: 1.8rem;
+    width: 2rem
+}
+
+.icon svg g:hover {
+    fill: red;
+}
+
+
+#myGit {
+    fill: white;
+    height: 2rem;
+    width: 2rem;
+    transition: all 0.8s ease-in-out;
+}
+
+#myGit:hover {
+    transform: rotate(720deg);
+    fill: gold;
+}
+
+/*--------------------------------menu-----------------------------------*/
+.menu__Home {
+    margin-top: 2rem;
+    padding-left: 1.5rem;
+    color: #fdfdfd;
+    font-size: 1.15rem;
+}
+
+
+.menu__Home:hover {
+    color: #fdfdfd;
+    background-color: black;
+}
+
+#other__menu {
+    margin-top: 1rem;
+    max-height: 20rem;
+    overflow: auto;
+}
+
+.menu__other {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 1.15rem;
+}
+
+.menu__other:hover, .menu__other:focus {
+    color: #fdfdfd;
+    background-color: black;
+}
+
+.selected {
+    border-left: 2px solid #dee390;
+    color: #dee390;
+}
+
+.selected:hover {
+    border-left: 2px solid #fdfdfd;
+}
+
+#menu__add_events {
+    /*background-color: #d8da7a;*/
+    margin-top: 1rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    font-size: 1.2rem;
+    border-bottom: 2px greenyellow solid;
+    transition: all 0.5s;
+}
+
+#menu__add_events:hover {
+    border-bottom: 2px white solid;
+    color: greenyellow;
+    cursor: pointer;
+}
+
+
+#menu__add_events svg {
+    position: absolute;
+    right: 1rem;
+    fill: white;
+}
+
+/*--------------------------CONTENT------------------*/
+#content__nav {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#main_topic{
+    font-size: 3rem;
+    font-family: 'Carter One', cursive;
+}
+
+#main--content_Info {
+    margin: 1rem 0 0 1rem;
+    font-size: 2.2rem
+}
+
+
+/*--------------------Tasks----------------*/
+#main__task_parent {
+    margin: 1rem 2rem 0 4rem;
+}
+
+.main__tasks {
+    height: 3rem;
+    background-color: #423e39;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-self: center;
+    border-left: 2px solid none;
+    border-bottom: 2px solid none;
+    margin-bottom: 1rem;
+}
+
+.main__tasks:hover {
+    scale: 1.01;
+}
+
+.main__tasks form {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+.main__tasks input[type=checkbox] + label {
+    margin-left: 1rem;
+    width: 20rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.main__tasks input[type=checkbox]:checked + label {
+    text-decoration: line-through;
+}
+
+.main__tasks input[type=checkbox] {
+    opacity: 0;
+}
+
+.main__tasks input[type=checkbox] + label::before {
+    content: "";
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    background-color: #fdfdfd;
+    left: 0;
+}
+
+.main__tasks input[type=checkbox]:checked + label::after {
+    content: "";
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    background-color: green;
+    left: 3px;
+    top: 3px;
+    z-index: 2;
+}
+
+.main__task_details_btn {
+    margin-left: auto;
+    background-color: #423e39;
+    height: 1.5rem;
+    width: 5rem;
+    border: 2px #9f9c9c solid;
+    color: #9f9c9c;
+    border-radius: 5px;
+}
+
+.main__task_details_btn:hover {
+    border: 2px white solid;
+    color: white;
+    background-color: rgba(182, 167, 167, 0.5);
+    cursor: pointer;
+}
+
+.main__task_edit {
+    height: 1.8rem;
+    margin-left: 0.5rem;
+}
+
+.main__task_delete {
+    height: 1.6rem;
+    margin-left: 0.5rem;
+
+}
+
+.main__task_edit g, .main__task_delete g {
+    fill: #9f9c9c;
+}
+
+.main__task_edit:hover g, .main__task_delete:hover g {
+    fill: white;
+    cursor: pointer;
+}
+
+/*-------------------new event form-----------------------*/
+#new_event_form {
+    position: absolute;
+    height: 5rem;
+    width: 30rem;
+    background-color: #000000;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    left: 45vw;
+    top: 45vh;
+    border-radius: 1rem;
+    z-index: 3;
+    border: 2px solid white;
+
+}
+
+#new_event_form_textbox {
+    width: 20rem;
+    height: 1.5rem;
+    border-radius: 0.3rem;
+}
+
+
+#new_event_form_submit {
+    width: 5rem;
+    height: 1.45rem;
+    background-color: rgba(227, 220, 220, 0.59);
+    color: #fdfdfd;
+    border-radius: 5px;
+
+}
+
+
+#new_event_form_x {
+    position: absolute;
+    right: 0.3rem;
+    top: 0.3rem;
+    fill: #fdfdfd;
+
+}
+
+#new_event_form_x:hover {
+    fill: #de3a3a;
+    cursor: pointer;
+}
+
+
+.display_blur {
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(166, 157, 157, 0.5);
+    height: 100dvh;
+    width: 100dvw;
+}
+
+.hide {
+    display: none;
+}
+
+/*-----Add Tasks-------------*/
+#main__add_todos {
+    display: flex;
+    height: 2rem;
+    width: 9rem;
+    /*background-color: saddlebrown;*/
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+#main__add_todos:hover {
+    background-color: rgba(107, 85, 83, 0.83);
+    cursor: pointer;
+}
+
+/*----------------------form--todolist-------*/
+#menu__form_todoadd {
+    position: absolute;
+    /*display: none;*/
+    width: 40vw;
+    width: 40dvw;
+    flex-direction: column;
+    background-color: black;
+    left: 35vw;
+    top: 20vh;
+    z-index: 4;
+    border-radius: 5px;
+}
+
+#menu__form_todoadd form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+#menu__form_todoadd form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu__form_toadd_header {
+    box-shadow: 0 2px 5px -2px #4f4b4b;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+}
+
+#menu__form_todoadd_X {
+    position: absolute;
+    right: 0.3rem;
+    top: 0.3rem;
+    fill: #fdfdfd;
+}
+
+#menu__form_todoadd_X:hover {
+    fill: #de3a3a;
+    cursor: pointer;
+}
+
+#menu__form_todoadd input {
+    margin-bottom: 0.8rem;
+}
+
+input[type=text] {
+    padding-left: 10px;
+    height: 1.5rem;
+}
+
+#form_todo_desc {
+    height: auto;
+    max-width: 100%;
+    max-height: 10rem;
+    margin-bottom: 1rem;
+}
+
+#form_todo_submit {
+    height: 1.5rem;
+    width: 6rem;
+    align-self: center;
+    transition: all 0.5s;
+    border: 2px white solid;
+    color: #fdfdfd;
+    background-color: black;
+}
+
+#form_todo_submit:hover {
+    color: black;
+    background-color: #ededed;
+    cursor: pointer;
+}
+
+select {
+    margin-bottom: 1rem;
+    height: 1.7rem;
+}
+
+
+/*----------------------------main update todos----------*/
+#menu__form_todo_edit {
+    position: absolute;
+    /*display: none;*/
+    width: 40vw;
+    width: 40dvw;
+    flex-direction: column;
+    background-color: black;
+    left: 35vw;
+    top: 20vh;
+    z-index: 4;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px -2px #4f4b4b;
+}
+
+#menu__form_todo_edit form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+#menu__form_todo_edit form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu__form_edit_header {
+    box-shadow: 0 2px 5px -2px #4f4b4b;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+}
+
+#menu__form_edit_X {
+    position: absolute;
+    right: 0.3rem;
+    top: 0.3rem;
+    fill: #fdfdfd;
+}
+
+#menu__form_edit_X:hover {
+    fill: #de3a3a;
+    cursor: pointer;
+}
+
+#menu__form_todo_edit input {
+    margin-bottom: 0.8rem;
+}
+
+input[type=text] {
+    padding-left: 10px;
+    height: 1.5rem;
+}
+
+#form_edit_desc {
+    height: auto;
+    max-width: 100%;
+    max-height: 10rem;
+    margin-bottom: 1rem;
+    min-width: 100%;
+}
+
+#form_edit_submit {
+    height: 1.5rem;
+    width: 6rem;
+    align-self: center;
+    transition: all 0.5s;
+    border: 2px white solid;
+    color: #fdfdfd;
+    background-color: black;
+}
+#form_edit_deletetask{
+    height: 1.5rem;
+    width: 6rem;
+    align-self: center;
+    transition: all 0.5s;
+    border: 2px white solid;
+    color: #fdfdfd;
+    background-color: black;
+}
+
+#form_edit_submit:hover,#form_edit_deletetask:hover {
+    color: black;
+    background-color: #ededed;
+    cursor: pointer;
+}
+
+select {
+    margin-bottom: 1rem;
+    height: 1.7rem;
+}
+
+/*------------------display_todo_details--------------------------------*/
+#display_todo_details {
+    position: absolute;
+    width: 30dvw;
+    background-color: #c9c6c6;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 2rem;
+    z-index: 4;
+    top: 50%; /* Move the element 50% down from the top of the parent container */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #1c1c1c;
+    box-shadow: 10px 10px 5px -5px #1c1c1c;
+}
+
+
+#todo_details_header {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 8px 8px -8px #2d2d2d;
+    margin-bottom: 2rem;
+    height: 2rem;
+    color: black;
+}
+
+#todo_details_header p {
+    font-size: 1.5rem;
+}
+
+.todo_details {
+    margin-bottom: 1rem;
+    display: flex;
+    height: 3rem;
+}
+
+.todo_details a {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.todo_details a:first-child {
+    color: black;
+}
+
+.todo_details a:nth-child(2) {
+    color: teal;
+}
+
+#todo_details_X {
+    position: absolute;
+    right: 0.3rem;
+    top: 0.3rem;
+    fill: #fdfdfd;
+    height: 2rem;
+    width: 2rem;
+    transition: 1s all;
+}
+
+#todo_details_X:hover {
+    fill: #de3a3a;
+    cursor: pointer;
+}
