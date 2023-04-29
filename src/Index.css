@@ -131,8 +131,20 @@ html {
     margin-bottom: 1rem;
     color: white;
     font-size: 1.15rem;
+    display: flex;
+    width: 100%;
+    position: relative;
 }
 
+.menu_delete{
+    /*position: absolute;*/
+    height: 1.3rem;
+    margin-left: 20%;
+    fill:#757472;
+}
+.menu_delete:hover{
+    fill: #fdfdfd;
+}
 .menu__other:hover, .menu__other:focus {
     color: #fdfdfd;
     background-color: black;
@@ -448,6 +460,7 @@ input[type=text] {
 select {
     margin-bottom: 1rem;
     height: 1.7rem;
+    border-radius: 5px;
 }
 
 

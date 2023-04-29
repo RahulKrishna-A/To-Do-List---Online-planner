@@ -1,7 +1,7 @@
-import "./Index. css"
+import "./Index.css"
+import {staticlisteners} from "./Comp/addeventlisteners";
 
 
 
-let projectList=[];
-
+let projectList =[]
 export {projectList}
