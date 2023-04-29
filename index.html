@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="./main.js" defer></script>
+    <!--    Styleee -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<div id="main-container">
+    <div id="new_event_form" style="display: none">
+        <form>
+            <div id="new_event_form_error" style="color: #de3a3a;font-size: 0.8rem;margin-bottom: 0.6rem;display: none">Please fill the following field</div>
+            <input type="text" required placeholder="Enter a name" id="new_event_form_textbox" >
+            <input type="submit" id="new_event_form_submit">
+            <svg id="new_event_form_x" nxmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+            </svg>
+        </form>
+    </div>
+
+<div id="menu__form_todoadd" style="display: none">
+    <div class="menu__form_toadd_header">
+        <p>New Task</p>
+        <svg id="menu__form_todoadd_X" nxmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24">
+            <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+        </svg>
+    </div>
+    <form>
+        <div>
+            <label for="form_todo_title">Title:</label>
+            <input type="text" required id="form_todo_title">
+            <label for="form_todo_desc">Description:</label>
+            <textarea contenteditable="true" rows="2" cols="3" id="form_todo_desc"></textarea>
+        </div>
+        <div>
+            <label for="form_todo_datetime">Due Date:</label>
+            <input type="datetime-local" required id="form_todo_datetime">
+            <label for="form_todo_priority">Select Priority:</label>
+            <select id="form_todo_priority">
+                <option > High Priority</option>
+                <option >Medium Priority</option>
+                <option >Low Priority</option>
+            </select>
+        </div>
+        <input id="form_todo_submit" type="submit">
+    </form>
+
+</div>
+
+<div id="display_todo_details" style="display: none">
+    <div id="todo_details_header">
+        <p>Task Details</p>
+    </div>
+    <div class="todo_details name">
+        <a>Name:</a>
+        <a id="todo_details_name_editable" style="color:teal;"> </a>
+    </div>
+    <div class="todo_details desc">
+        <a>Description:</a>
+        <a id="todo_details_desc_editable"></a>
+    </div>
+    <div class="todo_details duedate">
+        <a>Due Date:</a>
+        <a id="todo_details_duedate_editable"></a>
+    </div>
+    <div class="todo_details priority">
+        <a>Priority:</a>
+        <a id="todo_details_priority_editable"></a>
+    </div>
+    <svg id="todo_details_X" nxmlns="http://www.w3.org/2000/svg" width="24" height="24"
+         viewBox="0 0 24 24">
+        <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+    </svg>
+
+</div>
+
+<div class="display_blur" style="display: none">
+
+</div>
+
+<div id="menu__form_todo_edit" style="display: none">
+    <div class="menu__form_edit_header">
+        <p>Update Task</p>
+        <svg id="menu__form_edit_X" nxmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24">
+            <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+        </svg>
+    </div>
+    <form>
+        <div>
+            <label for="form_edit_title">Title:</label>
+            <input type="text" required id="form_edit_title">
+            <label for="form_edit_desc">Description:</label>
+            <textarea contenteditable="true" rows="2" cols="3" id="form_edit_desc"></textarea>
+        </div>
+        <div>
+            <label for="form_edit_datetime">Due Date:</label>
+            <input type="datetime-local" required id="form_edit_datetime">
+            <label for="form_edit_priority">Select Priority:</label>
+            <select id="form_edit_priority">
+                <option > High Priority</option>
+                <option >Medium Priority</option>
+                <option >Low Priority</option>
+            </select>
+        </div>
+        <input id="form_edit_submit" type="submit" value="Update">
+        <button id="form_edit_deletetask">Delete Task</button>
+    </form>
+
+</div>
+
+
+<!--    <div id="new_event_form">-->
+<!--        <form>-->
+<!--            <input type="text" required placeholder="Enter a name" id="new_event_form_textbox">-->
+<!--            <input type="submit" id="new_event_form_submit">-->
+<!--            <svg id="new_event_form_x" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>-->
+
+<!--        </form>-->
+
+<!--    </div>-->
+
+
+<div id="main--menu">
+    <div id='menu__user_space'>
+
+        <div class="menu__profile_pic">
+            <img src="Assets/dp.png" alt="profile">
+        </div>
+
+        <div class="menu__user_space_greeting">
+            <p><span style="color: red;font-size: 1.3rem">Hi</span> Master!</p>
+            <p>What's Next</p>
+        </div>
+
+        <div class="menu__Home selected">
+            <p>Home</p>
+        </div>
+
+        <div id="other__menu">
+            <div class="menu__other">
+                <p>new home</p>
+                <div title="delete event"><svg class="menu_delete" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                               width="30" height="30"
+                                               viewBox="0,0,256,256">
+                    <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+                       stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                       font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                        <g transform="scale(8.53333,8.53333)">
+                            <path d="M14.98438,2.48633c-0.55152,0.00862 -0.99193,0.46214 -0.98437,1.01367v0.5h-5.5c-0.26757,-0.00363 -0.52543,0.10012 -0.71593,0.28805c-0.1905,0.18793 -0.29774,0.44436 -0.29774,0.71195h-1.48633c-0.36064,-0.0051 -0.69608,0.18438 -0.87789,0.49587c-0.18181,0.3115 -0.18181,0.69676 0,1.00825c0.18181,0.3115 0.51725,0.50097 0.87789,0.49587h18c0.36064,0.0051 0.69608,-0.18438 0.87789,-0.49587c0.18181,-0.3115 0.18181,-0.69676 0,-1.00825c-0.18181,-0.3115 -0.51725,-0.50097 -0.87789,-0.49587h-1.48633c0,-0.26759 -0.10724,-0.52403 -0.29774,-0.71195c-0.1905,-0.18793 -0.44836,-0.29168 -0.71593,-0.28805h-5.5v-0.5c0.0037,-0.2703 -0.10218,-0.53059 -0.29351,-0.72155c-0.19133,-0.19097 -0.45182,-0.29634 -0.72212,-0.29212zM6,9l1.79297,15.23438c0.118,1.007 0.97037,1.76563 1.98438,1.76563h10.44531c1.014,0 1.86538,-0.75862 1.98438,-1.76562l1.79297,-15.23437z"></path>
+                        </g>
+                    </g>
+                </svg></div>
+            </div>
+            <div class="menu__other">
+                <p>new home</p>
+            </div>
+            <div class="menu__other">
+                <p>new home</p>
+            </div>
+            <div class="menu__other">
+                <p>new home</p>
+            </div>
+
+        </div>
+
+        <div title="add new event" id="menu__add_events">
+            <a>New event</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
+            </svg>
+        </div>
+
+    </div>
+</div>
+<div id="main--content">
+    <div id="content__nav">
+        <div id="main_topic">
+            <p>Do-<a style="color: teal">it</a></p>
+        </div>
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                 width="50" height="50"
+                 viewBox="0,0,256,256"
+                 style="fill:#000000;">
+                <g fill="#fdfdfd" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                   stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                   font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                   style="mix-blend-mode: normal">
+                    <g transform="scale(5.12,5.12)">
+                        <path d="M25,0c-2.19922,0 -4,1.80078 -4,4c0,0.51563 0.10156,1.01563 0.28125,1.46875c-5.625,1.46094 -9.28125,6.34766 -9.28125,12.53125c0,7.83203 -1.92187,11.39844 -3.75,13.40625c-0.91406,1.00391 -1.81641,1.61328 -2.59375,2.1875c-0.39062,0.28516 -0.74609,0.57031 -1.0625,0.9375c-0.31641,0.36719 -0.59375,0.89063 -0.59375,1.46875c0,1.375 0.84375,2.54297 2.03125,3.3125c1.1875,0.76953 2.74609,1.26563 4.625,1.65625c2.4375,0.50391 5.44531,0.76953 8.75,0.90625c-0.25,0.66406 -0.40625,1.37891 -0.40625,2.125c0,3.30078 2.69922,6 6,6c3.30078,0 6,-2.69922 6,-6c0,-0.75 -0.15234,-1.46484 -0.40625,-2.125c3.30469,-0.13672 6.3125,-0.40234 8.75,-0.90625c1.87891,-0.39062 3.4375,-0.88672 4.625,-1.65625c1.1875,-0.76953 2.03125,-1.9375 2.03125,-3.3125c0,-0.57812 -0.27734,-1.10156 -0.59375,-1.46875c-0.31641,-0.36719 -0.67187,-0.65234 -1.0625,-0.9375c-0.77734,-0.57422 -1.67969,-1.18359 -2.59375,-2.1875c-1.82812,-2.00781 -3.75,-5.57422 -3.75,-13.40625c0,-6.17969 -3.66406,-11.0625 -9.28125,-12.53125c0.17969,-0.45312 0.28125,-0.95312 0.28125,-1.46875c0,-2.19922 -1.80078,-4 -4,-4zM25,2c1.11719,0 2,0.88281 2,2c0,1.11719 -0.88281,2 -2,2c-1.11719,0 -2,-0.88281 -2,-2c0,-1.11719 0.88281,-2 2,-2zM27.34375,7.1875c5.33203,0.94922 8.65625,5.07031 8.65625,10.8125c0,8.16797 2.07813,12.36328 4.25,14.75c1.08594,1.19141 2.18359,1.9375 2.90625,2.46875c0.35938,0.26563 0.62891,0.48828 0.75,0.625c0.12109,0.13672 0.09375,0.125 0.09375,0.15625c0,0.625 -0.28906,1.08203 -1.125,1.625c-0.83594,0.54297 -2.19531,1.04688 -3.9375,1.40625c-3.48437,0.72266 -8.44531,0.96875 -13.9375,0.96875c-5.49219,0 -10.45312,-0.24609 -13.9375,-0.96875c-1.74219,-0.35937 -3.10156,-0.86328 -3.9375,-1.40625c-0.83594,-0.54297 -1.125,-1 -1.125,-1.625c0,-0.03125 -0.02734,-0.01953 0.09375,-0.15625c0.12109,-0.13672 0.39063,-0.35937 0.75,-0.625c0.72266,-0.53125 1.82031,-1.27734 2.90625,-2.46875c2.17188,-2.38672 4.25,-6.58203 4.25,-14.75c0,-5.73828 3.32813,-9.82812 8.65625,-10.78125c0.66406,0.48828 1.46484,0.78125 2.34375,0.78125c0.88672,0 1.67969,-0.31641 2.34375,-0.8125zM21.5625,41.9375c1.12109,0.02344 2.26172,0.0625 3.4375,0.0625c1.17578,0 2.31641,-0.03906 3.4375,-0.0625c0.35547,0.60156 0.5625,1.3125 0.5625,2.0625c0,2.22266 -1.77734,4 -4,4c-2.22266,0 -4,-1.77734 -4,-4c0,-0.75781 0.19922,-1.46094 0.5625,-2.0625z"></path>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <!--            <div class="github"><a title="my Github" href="https://github.com/RahulKrishna-A" target="_blank">-->
+        <!--                <svg id="myGit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">-->
+        <!--                    <path fill-rule="evenodd" clip-rule="evenodd"-->
+        <!--                          d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"></path>-->
+        <!--                </svg>-->
+        <!--            </a></div>-->
+    </div>
+
+    <div id="main--content_Info">
+        <div id="main__content_Header">
+            <div id="main__content_header_editable">Home</div>
+
+        </div>
+    </div>
+    <div id="main__task_parent">
+        <div class="main__tasks">
+            <form>
+                <input type="checkbox" id="maintask_checkbox" class="yes">
+                <label for="maintask_checkbox"> Hiii iam going tooooooooooooooooo</label>
+            </form>
+            <button class="main__task_details_btn">
+                Details
+            </button>
+            <svg class="main__task_edit" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                 width="48" height="48"
+                 viewBox="0,0,256,256"
+                 style="fill:#000000;">
+                <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+                   stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                   font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                    <g transform="scale(4,4)">
+                        <path d="M53.414,16.757c0.781,0.781 0.781,2.047 0,2.828l-30.909,30.91l-10.201,3.412c-1.367,0.457 -2.668,-0.844 -2.211,-2.211l3.412,-10.201l30.909,-30.909c0.781,-0.781 2.047,-0.781 2.828,0zM41.657,19l-24.495,24.495l-2.162,4.505l1,1l4.505,-2.162l24.495,-24.495z"></path>
+                    </g>
+                </g>
+            </svg>
+            <svg class="main__task_delete" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                 width="30" height="30"
+                 viewBox="0,0,256,256"
+                 style="fill:#000000;">
+                <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+                   stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                   font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                    <g transform="scale(8.53333,8.53333)">
+                        <path d="M14.98438,2.48633c-0.55152,0.00862 -0.99193,0.46214 -0.98437,1.01367v0.5h-5.5c-0.26757,-0.00363 -0.52543,0.10012 -0.71593,0.28805c-0.1905,0.18793 -0.29774,0.44436 -0.29774,0.71195h-1.48633c-0.36064,-0.0051 -0.69608,0.18438 -0.87789,0.49587c-0.18181,0.3115 -0.18181,0.69676 0,1.00825c0.18181,0.3115 0.51725,0.50097 0.87789,0.49587h18c0.36064,0.0051 0.69608,-0.18438 0.87789,-0.49587c0.18181,-0.3115 0.18181,-0.69676 0,-1.00825c-0.18181,-0.3115 -0.51725,-0.50097 -0.87789,-0.49587h-1.48633c0,-0.26759 -0.10724,-0.52403 -0.29774,-0.71195c-0.1905,-0.18793 -0.44836,-0.29168 -0.71593,-0.28805h-5.5v-0.5c0.0037,-0.2703 -0.10218,-0.53059 -0.29351,-0.72155c-0.19133,-0.19097 -0.45182,-0.29634 -0.72212,-0.29212zM6,9l1.79297,15.23438c0.118,1.007 0.97037,1.76563 1.98438,1.76563h10.44531c1.014,0 1.86538,-0.75862 1.98438,-1.76562l1.79297,-15.23437z"></path>
+                    </g>
+                </g>
+            </svg>
+        </div>
+
+        <div id="main__add_todos">
+            <p>Add Tasks</p>
+            <svg xmlns="http://www.w3.org/2000/svg" style="fill: #de3a3a" width="24" height="24"
+                 viewBox="0 0 24 24">
+                <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
+            </svg>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+</div>
+</body>
+</html>
