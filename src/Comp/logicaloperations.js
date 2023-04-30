@@ -61,7 +61,7 @@ const deleteMenus = (index) => {
 const displaytodos = (index) => {
     new_project.show((new_project.todo_details));
     let activeProject = getActiveProject()[0];
-    console.log(index);
+
     new_project.todo_details_name.innerText = activeProject.todolist[index].Name;
     new_project.todo_details_desc.innerText = activeProject.todolist[index].description;
     new_project.todo_details_duedate.innerText = activeProject.todolist[index].DueDate;
@@ -89,8 +89,8 @@ const checking = (index) => {
     storemyproject()
 }
 
-const storemyproject=()=>{
-    window.localStorage.setItem("user",JSON.stringify(projectList));
+const storemyproject = () => {
+    window.localStorage.setItem("user", JSON.stringify(projectList));
 }
 
 export {

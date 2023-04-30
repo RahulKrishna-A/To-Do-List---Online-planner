@@ -15,7 +15,7 @@ function menuaddlisteners() {
     menus.forEach((value) => {
 
         value.addEventListener("click", (e) => {
-            console.log(e)
+
             changeActiveProjects(e.target.dataset.value);
 
         })
@@ -27,7 +27,7 @@ function todolisteners() {
     const todo_details = document.querySelectorAll(".main__task_details_btn");
     const todo_delete = document.querySelectorAll(".main__task_delete");
     const check_boxes = document.querySelectorAll("input[type=checkbox]")
-    console.log(check_boxes);
+
     todo_details.forEach((value) => {
         value.addEventListener("click", (e) => {
             displaytodos(e.target.dataset.value)
