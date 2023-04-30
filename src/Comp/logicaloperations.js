@@ -11,6 +11,7 @@ function createProject(name) {
         active: true,
     })
     eventrender()
+    storemyproject()
 }
 
 const createTOdo = (name, desc, due, priority) => {
@@ -25,6 +26,7 @@ const createTOdo = (name, desc, due, priority) => {
         }
     )
     todosRender();
+    storemyproject()
 
 
 }
@@ -33,6 +35,7 @@ const ClearActiveProjects = () => {
     projectList.forEach((value) => {
         value.active = false;
     })
+    storemyproject()
 }
 
 const getActiveProject = () => {
@@ -52,6 +55,7 @@ const changeActiveProjects = (index) => {
 const deleteMenus = (index) => {
     projectList.splice(index, 1)
     eventrender();
+    storemyproject()
 }
 
 const displaytodos = (index) => {
@@ -70,7 +74,8 @@ const displaytodos = (index) => {
 const deletetodos = (index) => {
     let activeProject = getActiveProject()[0];
     activeProject.todolist.splice(index, 1);
-    eventrender()
+    eventrender();
+    storemyproject()
 }
 
 const checking = (index) => {
@@ -81,6 +86,11 @@ const checking = (index) => {
         activeProject.todolist[index].complete = true;
     }
     todosRender()
+    storemyproject()
+}
+
+const storemyproject=()=>{
+    window.localStorage.setItem("user",JSON.stringify(projectList));
 }
 
 export {
