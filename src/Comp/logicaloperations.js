@@ -1,25 +1,27 @@
 import {projectList} from "../index";
-import {eventrender,todosRender} from "./render";
+import {eventrender, todosRender} from "./render";
+import {new_project} from "./selectorsAndDOM";
 
-function createProject(name){
+
+function createProject(name) {
     ClearActiveProjects();
     projectList.push({
-        Name:name,
-        todolist:[],
-        active:true,
+        Name: name,
+        todolist: [],
+        active: true,
     })
     eventrender()
 }
 
-const createTOdo=(name,desc,due,priority)=>{
-    let activeproject =getActiveProject()[0];
+const createTOdo = (name, desc, due, priority) => {
+    let activeproject = getActiveProject()[0];
     activeproject.todolist.push(
         {
-            Name:name,
-            description:desc,
-            DueDate:due,
-            complete:false,
-            priority:priority,
+            Name: name,
+            description: desc,
+            DueDate: due,
+            complete: false,
+            priority: priority,
         }
     )
     todosRender();
@@ -28,18 +30,18 @@ const createTOdo=(name,desc,due,priority)=>{
 }
 
 const ClearActiveProjects = () => {
-    projectList.forEach((value)=>{
+    projectList.forEach((value) => {
         value.active = false;
     })
 }
 
-const getActiveProject = () =>{
-    return projectList.filter((project)=>{
-        return project.active===true;
+const getActiveProject = () => {
+    return projectList.filter((project) => {
+        return project.active === true;
     })
 }
 
-const changeActiveProjects = (index) =>{
+const changeActiveProjects = (index) => {
 
     ClearActiveProjects();
     projectList[index].active = true;
@@ -47,15 +49,48 @@ const changeActiveProjects = (index) =>{
 
 }
 
-const deleteMenus = (index) =>{
-    projectList.splice(index,1)
+const deleteMenus = (index) => {
+    projectList.splice(index, 1)
     eventrender();
 }
 
-const deletetodos = (index)=>{
-    let activeProject  = getActiveProject()[0];
-
-    activeProject.todolist.splice(index,1)
+const displaytodos = (index) => {
+    new_project.show((new_project.todo_details));
+    let activeProject = getActiveProject()[0];
+    console.log(index);
+    new_project.todo_details_name.innerText = activeProject.todolist[index].Name;
+    new_project.todo_details_desc.innerText = activeProject.todolist[index].description;
+    new_project.todo_details_duedate.innerText = activeProject.todolist[index].DueDate;
+    new_project.todo_details_priority.innerText = activeProject.todolist[index].priority;
+    new_project.todo_details_X.addEventListener("click", () => {
+        new_project.hide((new_project.todo_details));
+    })
 }
 
-export {createProject,ClearActiveProjects,getActiveProject,createTOdo,changeActiveProjects,deleteMenus}
+const deletetodos = (index) => {
+    let activeProject = getActiveProject()[0];
+    activeProject.todolist.splice(index, 1);
+    eventrender()
+}
+
+const checking = (index) => {
+    let activeProject = getActiveProject()[0];
+    if (activeProject.todolist[index].complete) {
+        activeProject.todolist[index].complete = false;
+    } else {
+        activeProject.todolist[index].complete = true;
+    }
+    todosRender()
+}
+
+export {
+    createProject,
+    ClearActiveProjects,
+    getActiveProject,
+    createTOdo,
+    changeActiveProjects,
+    deleteMenus,
+    deletetodos,
+    displaytodos,
+    checking,
+}

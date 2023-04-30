@@ -1,5 +1,5 @@
 import {new_project} from "./selectorsAndDOM";
-import {createProject,createTOdo} from "./logicaloperations";
+import {createProject, createTOdo} from "./logicaloperations";
 import {format, differenceInDays, parseISO} from "date-fns";
 
 // --------new event
@@ -18,12 +18,12 @@ new_project.new_eventForm_cancel.addEventListener("click", (e) => {
 new_project.new_eventForm_submit.addEventListener("click", (e) => {
     e.preventDefault();
 
-    if (new_project.new_eventForm_input.value!=="") {
+    if (new_project.new_eventForm_input.value !== "") {
         new_project.hide(new_project.blur_screen);
         new_project.hide(new_project.new_eventForm);
         new_project.new_event_error.style.display = "none";
         createProject(new_project.new_eventForm_input.value);
-        new_project.new_eventForm_input.value="";
+        new_project.new_eventForm_input.value = "";
     } else {
         new_project.new_event_error.style.display = "flex"
     }
@@ -56,11 +56,10 @@ new_project.add_todo_submit.addEventListener("click", (e) => {
             new_project.add_todo_desc.value,
             new_project.add_todo_dateTime.value,
             new_project.add_todo_Priority.value)
-            new_project.add_todo_title.value="";
-            new_project.add_todo_desc.value="";
-            new_project.add_todo_dateTime.value=""
-    }
-    else{
+        new_project.add_todo_title.value = "";
+        new_project.add_todo_desc.value = "";
+        new_project.add_todo_dateTime.value = ""
+    } else {
         new_project.form_todo_error.style.display = "flex"
     }
     // createTodo()
