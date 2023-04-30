@@ -13,6 +13,7 @@ const new_project = (()=>{
     const new_eventForm_submit = document.getElementById("new_event_form_submit");
     const new_event_error  = document.getElementById("new_event_form_error");
     // Add tasks
+
     const btn_add_todo = document.getElementById("main__add_todos");
     const add_todo_form = document.getElementById("menu__form_todoadd");
     const add_todo_form_cancel = document.getElementById("menu__form_todoadd_X");
@@ -20,6 +21,7 @@ const new_project = (()=>{
     const add_todo_desc  =  document.getElementById("form_todo_desc");
     const add_todo_dateTime = document.getElementById("form_todo_datetime");
     const add_todo_Priority = document.getElementById("form_todo_priority");
+    const form_todo_error  = document.getElementById("form_todo_error");
     const add_todo_submit =  document.getElementById("form_todo_submit");
     // details_todo
     const todo_details=document.getElementById("display_todo_details");
@@ -40,13 +42,14 @@ const new_project = (()=>{
         element.style.display="flex";
     };
 
-    const hide =(element)=>{
-        element.style.display="none";
+    const hide =(element)=> {
+        element.style.display = "none";
     }
 
     const clear = (element)=>{
         element.value = "";
     }
+
 
     return{
         show,hide,clear,
@@ -70,6 +73,7 @@ const new_project = (()=>{
         add_todo_dateTime ,
         add_todo_Priority ,
         add_todo_submit,
+        form_todo_error,
         // details_todo
          todo_details,
         todo_details_name ,

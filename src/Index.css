@@ -134,6 +134,14 @@ html {
     display: flex;
     width: 100%;
     position: relative;
+    cursor: pointer;
+}
+.menu__other p{
+    user-select: none;
+    -webkit-user-drag: none;
+    width: 4rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .menu_delete{
@@ -183,6 +191,11 @@ html {
     fill: white;
 }
 
+.menu_div_delete{
+    margin-left: auto;
+    margin-right: 1.5rem;
+}
+
 /*--------------------------CONTENT------------------*/
 #content__nav {
     height: 5rem;
@@ -206,6 +219,16 @@ html {
     margin: 1rem 2rem 0 4rem;
 }
 
+.main__tasks{
+    border-left-width: 4px;
+    border-left-style:solid ;
+
+    /*border-bottom-width: 2px;*/
+    /*border-bottom-style:solid;*/
+}
+
+
+
 .main__tasks {
     height: 3rem;
     background-color: #423e39;
@@ -214,10 +237,14 @@ html {
     align-items: center;
     padding: 1rem;
     justify-self: center;
-    border-left: 2px solid none;
-    border-bottom: 2px solid none;
+
     margin-bottom: 1rem;
 }
+.main__task_daysleft{
+    margin-left: auto;
+    color: rgba(253, 253, 253, 0.8);
+}
+
 
 .main__tasks:hover {
     scale: 1.01;
@@ -237,9 +264,7 @@ html {
     overflow: hidden;
 }
 
-.main__tasks input[type=checkbox]:checked + label {
-    text-decoration: line-through;
-}
+
 
 .main__tasks input[type=checkbox] {
     opacity: 0;
@@ -254,7 +279,10 @@ html {
     left: 0;
 }
 
-.main__tasks input[type=checkbox]:checked + label::after {
+.main__tasks.checked  label {
+    text-decoration: line-through;
+}
+.main__tasks.checked  label::after {
     content: "";
     height: 12px;
     width: 12px;
@@ -266,7 +294,7 @@ html {
 }
 
 .main__task_details_btn {
-    margin-left: auto;
+    margin-left: 1rem;
     background-color: #423e39;
     height: 1.5rem;
     width: 5rem;
@@ -311,8 +339,9 @@ html {
     /*display: flex;*/
     align-items: center;
     justify-content: center;
-    left: 45vw;
-    top: 45vh;
+    top: 50%; /* Move the element 50% down from the top of the parent container */
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 1rem;
     z-index: 3;
     border: 2px solid white;
@@ -371,13 +400,20 @@ html {
     justify-content: center;
     align-items: center;
     margin-left: auto;
+    margin-right: 2rem;
     border-radius: 8px;
-    transition: all 0.3s;
+    transition: all 0.4s;
 }
 
 #main__add_todos:hover {
     background-color: rgba(107, 85, 83, 0.83);
     cursor: pointer;
+    text-decoration: underline;
+}
+
+#main__add_todos:active{
+    scale: 0.9;
+    background-color: rgba(242, 86, 16, 0.83);
 }
 
 /*----------------------form--todolist-------*/
@@ -388,8 +424,9 @@ html {
     width: 40dvw;
     flex-direction: column;
     background-color: black;
-    left: 35vw;
-    top: 20vh;
+    top: 50%; /* Move the element 50% down from the top of the parent container */
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 4;
     border-radius: 5px;
 }
