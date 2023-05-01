@@ -1,10 +1,11 @@
 
 # To-Do-List--Online-planner
  
-  A Todo web application! With  user-friendly interface, you can easily add and remove tasks, set deadlines, and track your progress. The app uses local storage to save your todos, so you can access them anytime, anywhere.
+  A Todo web application! With  user-friendly interface, you can easily add and remove tasks,set priority, set deadlines, and track your progress. The app uses local storage to save your todos, so you can access them anytime, anywhere.
 
 
 ## Working screenshots
+![working ss-1](https://user-images.githubusercontent.com/109454528/235475967-5fb2ad77-2ba9-4fc4-82c7-2209dffcf7a9.png)
 ## Live Demo
 
 https://rahulkrishna-a.github.io/To-Do-List---Online-planner/
